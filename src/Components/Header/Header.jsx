@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import MobileHeader from './MobileHeader';
-import DeaktopHeader from './DeaktopHeader';
+import DeaktopHeader from './DesktopHeader';
 import Container from '@mui/material/Container';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import {useTheme,AppBar } from '@mui/material';
