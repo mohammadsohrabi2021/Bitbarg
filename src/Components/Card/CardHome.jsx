@@ -3,7 +3,7 @@ import { Container } from '@mui/system';
 import Image from '../../assets/img/banner.webp'
 import React, { useState } from 'react';
 import PhoneIcon from '@mui/icons-material/Phone';
-
+import BoxDataModal from '../Box/BoxDataModal'
 function CardHome() {
     const [open, setOpen] = useState(false)
     const handleShow = () => {
@@ -54,7 +54,7 @@ function CardHome() {
                                         readOnly: true,
                                     }}
                                 />
-                                {/* <ModalBanner open={open} setOpen={setOpen} /> */}
+                                <BoxDataModal open={open} setOpen={setOpen} />
                             </Grid>
                         </Grid>
                     </Grid>
