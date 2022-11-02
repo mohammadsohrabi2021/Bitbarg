@@ -4,11 +4,12 @@ import Image from '../../assets/img/banner.webp'
 import React, { useState } from 'react';
 import PhoneIcon from '@mui/icons-material/Phone';
 import BoxDataModal from '../Box/BoxDataModal'
-function CardHome() {
+function CardHome({dataCoins}) {
     const [open, setOpen] = useState(false)
     const handleShow = () => {
         setOpen(true)
     }
+    
     return (
         <Grid>
             <Container>
@@ -54,7 +55,7 @@ function CardHome() {
                                         readOnly: true,
                                     }}
                                 />
-                                <BoxDataModal open={open} setOpen={setOpen} />
+                                <BoxDataModal open={open} setOpen={setOpen} dataCoins={dataCoins}/>
                             </Grid>
                         </Grid>
                     </Grid>

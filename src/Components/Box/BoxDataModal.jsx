@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid, IconButton, List, Box, Modal, Typography, InputBase, Divider } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import ModalItem from './BoxItem/BoxItemModal';
 import style from './Style'
-function BoxDataModal({ open, setOpen }) {
+function BoxDataModal({ open, setOpen, dataCoins }) {
     const handleClose = () => {
         setOpen(false)
+    }
+    const [search, setSearch] = useState('')
+    const handleSearch = e => {
+        setSearch(e.target.value)
     }
     return (
         <Grid>
@@ -34,6 +38,9 @@ function BoxDataModal({ open, setOpen }) {
                             </IconButton>
                             <InputBase sx={{ ml: 1, flex: 1 }}
                                 placeholder="جستجو"
+                                onChange={handleSearch}
+                                value={search}
+                                name='search'
                                 inputProps={{ 'aria-label': 'search google maps' }}
                             />
                         </Grid>
@@ -42,13 +49,11 @@ function BoxDataModal({ open, setOpen }) {
                             <Grid sx={{ maxHeight: '400px', height: '100%', overflowY: 'auto' }}>
                                 <List>
                                     {
-                                        [1, 2, 3, 4, 5, 6, 7, 8].map(i => (
-                                            <>
-                                                <ModalItem />
-                                                <Divider variant="middle" />
-                                            </>
+                                        <>
+                                            <ModalItem dataCoins={dataCoins} search={search} />
+                                            <Divider variant="middle" />
+                                        </>
 
-                                        ))
                                     }
                                 </List>
 
