@@ -3,18 +3,29 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { Grid, Typography } from '@mui/material';
-function BoxItemModal({ dataCoins,search }) {
+function BoxItemModal({ dataCoins, search }) {
 
     return (
-        <ListItem component="div" disablePadding sx={{ padding: 1 }}>
+        <ListItem component="div"  sx={{ padding: 1 }}>
             <ListItemButton>
-                <ListItemText sx={{ display:'flex' }}>
+                <ListItemText >
                     {
-                        dataCoins.filter(item => item.name.toUpperCase().includes(search.toUpperCase())).map(item => <Grid>
-                            <img width={'100px'} src={item.iconUrl} />
-                            <Typography>{item.name}</Typography>
-                            <Typography>{item.price}</Typography>
-                        </Grid>)
+                        dataCoins.filter(item => item.name.toUpperCase().includes(search.toUpperCase())).map(item =>
+                            <Grid  sx={{
+                                display: 'flex',
+                                alignItems:'center',
+                                justifyContent:'space-between',
+                                borderBottom:'.1px solid gray'
+                                
+                            }}
+                            >
+                                <img width={'50px'} src={item.iconUrl} />
+                                <Typography my={3} >{item.symbol} - {item.name}</Typography>
+                                <Typography>
+                                    <Typography>{'قیمت خرید'}</Typography>
+                                    <Typography>{item.price}تومان</Typography>
+                                </Typography>
+                            </Grid>)
                     }
                 </ListItemText>
             </ListItemButton>
