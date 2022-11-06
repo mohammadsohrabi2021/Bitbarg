@@ -4,7 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import ModalItem from './BoxItem/BoxItemModal';
 import style from './Style'
-function BoxDataModal({ open, setOpen, dataCoins }) {
+function BoxDataModal({ open, setOpen, dataCoins ,setForm}) {
     const handleClose = () => {
         setOpen(false)
     }
@@ -50,7 +50,7 @@ function BoxDataModal({ open, setOpen, dataCoins }) {
                                 <List>
                                     {
                                         <>
-                                            <ModalItem dataCoins={dataCoins} search={search} />
+                                            <ModalItem dataCoins={dataCoins} search={search} setForm={setForm} setOpen={setOpen} />
                                             <Divider variant="middle" />
                                         </>
 

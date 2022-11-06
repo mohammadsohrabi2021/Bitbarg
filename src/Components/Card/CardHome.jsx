@@ -4,16 +4,23 @@ import Image from '../../assets/img/banner.webp'
 import React, { useState } from 'react';
 import PhoneIcon from '@mui/icons-material/Phone';
 import BoxDataModal from '../Box/BoxDataModal'
-function CardHome({dataCoins}) {
+function CardHome({ dataCoins }) {
     const [open, setOpen] = useState(false)
+    const [form, setForm] = useState({
+        symbol: 'Bitcoin',
+        conunt: 1,
+        price: 21273.862578
+    })
     const handleShow = () => {
         setOpen(true)
     }
-    
+    const handleChange = e => {
+        setForm({ ...form, [e.target.name]: e.target.value })
+    }
     return (
         <Grid>
             <Container>
-                <Grid container m={2} 
+                <Grid container m={2}
                     sx={{
                         display: 'flex',
                         justifyContent: 'center',
@@ -32,16 +39,21 @@ function CardHome({dataCoins}) {
                         <Grid item container spacing={{ xs: 1.5, md: 0.5 }} flexDirection={{ xs: 'column', md: 'row' }} mb={2}>
                             <Grid item>
                                 <TextField
+                                    onChange={handleChange}
                                     id="outlined"
                                     label="تومان"
-                                    defaultValue='0'
+                                    value={form.price*form.tier}
+                                    name='price'
+
                                 />
                             </Grid>
                             <Grid item>
                                 <TextField
                                     id="outlined"
                                     label="واحد"
-                                    defaultValue='0'
+                                    onChange={handleChange}
+                                    value={form.tier}
+                                    name='tier'
                                 />
                             </Grid>
                             <Grid item>
@@ -49,13 +61,15 @@ function CardHome({dataCoins}) {
                                     onClick={handleShow}
                                     id="outlined-read-only-input"
                                     label="انتخاب ارز"
-                                    defaultValue="تتر"
+                                    onChange={handleChange}
+                                    value={form.symbol}
+                                    name='symbol'
                                     sx={{ cursor: "pointer" }}
                                     InputProps={{
                                         readOnly: true,
                                     }}
                                 />
-                                <BoxDataModal open={open} setOpen={setOpen} dataCoins={dataCoins}/>
+                                <BoxDataModal open={open} setOpen={setOpen} dataCoins={dataCoins} setForm={setForm}/>
                             </Grid>
                         </Grid>
                     </Grid>

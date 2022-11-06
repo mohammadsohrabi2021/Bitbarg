@@ -3,20 +3,26 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { Grid, Typography } from '@mui/material';
-function BoxItemModal({ dataCoins, search }) {
-
+function BoxItemModal({ dataCoins, search, setForm, setOpen }) {
+    const handleInput = item => {
+        setForm(item)
+        handleClose()
+    }
+    const handleClose = () => {
+        setOpen(false)
+    }
     return (
-        <ListItem component="div"  sx={{ padding: 1 }}>
+        <ListItem component="div" sx={{ padding: 1 }}>
             <ListItemButton>
                 <ListItemText >
                     {
                         dataCoins.filter(item => item.name.toUpperCase().includes(search.toUpperCase())).map(item =>
-                            <Grid  sx={{
+                            <Grid onClick={() => handleInput(item)} sx={{
                                 display: 'flex',
-                                alignItems:'center',
-                                justifyContent:'space-between',
-                                borderBottom:'.1px solid gray'
-                                
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                borderBottom: '.1px solid gray'
+
                             }}
                             >
                                 <img width={'50px'} src={item.iconUrl} />
