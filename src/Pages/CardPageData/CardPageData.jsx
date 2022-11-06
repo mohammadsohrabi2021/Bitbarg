@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
@@ -19,14 +19,14 @@ function CardPageData({dataCoins,search,filter,setDataCoins}) {
                     }}>
                         <img width={'50px'} src={item.iconUrl} />
                         <Grid>
-                            <h3>{item.name}</h3>
-                            <h3>{item.symbol}</h3>
+                            <Typography>{item.name}</Typography>
+                            <Typography>{item.symbol}</Typography>
                         </Grid>
-                        <h3>{item.price}</h3>
-                        <h3>{item.change}</h3>
-                        <h3>{item.marketCap}</h3>
+                        <Typography>{item.price}</Typography>
+                        <Typography>{item.marketCap}</Typography>
+                        <Typography>{`${item.change} %`}</Typography>
                         <Grid onClick={() => handelCheck(item.uuid)}>
-                            <h3>{item.lVolume ? <StarIcon /> : <StarBorderIcon />}</h3>
+                            <Typography>{item.lVolume ? <StarIcon /> : <StarBorderIcon />}</Typography>
                         </Grid>
                     </Grid>
                 )
