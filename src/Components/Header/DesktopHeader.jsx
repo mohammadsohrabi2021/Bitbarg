@@ -2,8 +2,10 @@ import { Button, Grid, Typography } from '@mui/material';
 import React from 'react';
 import Menu from '@mui/icons-material/SegmentRounded';
 import Data from '../../Data/Data'
+import {Item,ItemHome} from '../../Data/Data';
 import Divider from '@mui/material/Divider';
 import { ReactComponent as Logo } from '../../assets/img/headerLogo.svg'
+import { Link } from 'react-router-dom';
 
 function DeaktopHeader() {
     return (
@@ -19,27 +21,24 @@ function DeaktopHeader() {
             <Grid item
                 sx={{
                     display: 'flex',
-                    width: '45%',
                     justifyContent: 'space-evenly',
                     alignItems: 'center',
-                    pr: '0'
+                    pr: '0',
                 }}
             >
                 <Button variant='secondaryButton' sx={{ color: '#000' }}>
                     <Menu />
-                    <Typography>
-                        {'منو'}
-                    </Typography>
+                    <Typography>{'منو'}</Typography>
                 </Button>
-                {
-                    Data.map((item, index) =>
-                        <Button variant='secondaryButton contained'>
-                            <Typography variant='button' key={index}>
-                                {item}
-                            </Typography>
-                        </Button>
-                    )
-                }
+                {/* {ItemHome.map((item, index) => <Button><Typography  key={index} variant='secondaryButton'><Link to={'/'}>{item.home}</Link></Typography></Button>)}
+                {Item.map((item, index) => <Button><Typography  key={index} variant='button'><Link to={'/price'}>{item.price}</Link></Typography></Button>)} */}
+                {Data.map((item, index) =>
+                    <Button variant='secondaryButton contained'>
+                        <Typography variant='button' key={index}>
+                           <Link to={item.href}>{item.name}</Link>
+                        </Typography>
+                    </Button>
+                )}
             </Grid>
             <Grid item
                 sx={{

@@ -13,7 +13,7 @@ function Header() {
         <Grid>
             <AppBar
                 sx={{
-                    backgroundColor: "#fff", height: 'auto'
+                    backgroundColor: "#fff", height: 'auto',boxShadow:0
                 }}
             >
                 <Container>
