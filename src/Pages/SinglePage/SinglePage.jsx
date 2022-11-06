@@ -4,7 +4,9 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 import options from '../../Api/Api';
 import Filter from '../../Components/Filter/Filter';
-import HeaderTitle from '../../Data/DataSinglePage';
+import FilterPrice from '../FilterPrice/FilterPrice';
+import HeaderSinglePage from '../HeaderSinglePage/HeaderSinglePage';
+import DataTitle from '../DataTitle/DataTitle';
 function SinglePage() {
     const [dataCoins, setDataCoins] = useState([])
     const [filter, setFilter] = useState('favoriteData')
@@ -29,22 +31,14 @@ function SinglePage() {
     return (
         <Grid>
             <Container sx={{ background: '#fff', boxShadow: 2, borderRadius: 3 }}>
-                <Grid sx={{ display: 'flex', gap: 2 ,marginBottom: 15}}>
-                    <Typography variant='h2'>
-                        {'قیمت لحظه ای '}
-                    </Typography>
-                    <Typography>
-                        {`${dataCoins.length} ارز دیجیتال`}
-                    </Typography>
-                </Grid>
-                <Grid container item>
+                <DataTitle dataCoins={dataCoins}/>
+                <Grid container item pt={5}>
                     <input value={search} onChange={handleSearch} placeholder='جستجو' />
                     <Filter handleFilterBtn={handleFilterBtn} />
+                    <FilterPrice dataCoins={dataCoins} />
                 </Grid>
                 <Grid mt={5}>
-                    <Grid sx={{display:'flex',justifyContent:'space-around'}}>
-                       {HeaderTitle.map(item=><Typography>{item.name}</Typography>)}
-                    </Grid>
+                    <HeaderSinglePage />
                     <Grid>
                         {
                             dataCoins.filter(todo => todo.name.toUpperCase().includes(search.toUpperCase()) && (filter === 'favoriteData' ? true : todo.lVolume === filter)).map((item, index) =>

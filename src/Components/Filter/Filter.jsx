@@ -9,7 +9,7 @@ function Filter({handleFilterBtn}) {
     return (
         <Grid>
              {filterData.map(filterBtn => (
-                    <Grid>
+                    <Grid key={filterBtn.id}>
                         <Button variant='contained' onClick={() => handleFilterBtn(filterBtn.title)}>
                             {filterBtn.name}
                         </Button>
