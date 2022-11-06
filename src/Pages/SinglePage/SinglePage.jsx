@@ -6,6 +6,8 @@ import FilterPrice from '../FilterPrice/FilterPrice';
 import HeaderSinglePage from '../HeaderSinglePage/HeaderSinglePage';
 import DataTitle from '../DataTitle/DataTitle';
 import CardPageData from '../CardPageData/CardPageData';
+import { IconButton, InputBase } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 function SinglePage() {
     const [dataCoins, setDataCoins] = useState([])
     const [filter, setFilter] = useState('favoriteData')
@@ -30,8 +32,21 @@ function SinglePage() {
             <Container sx={{ background: '#fff', boxShadow: 2, borderRadius: 3 }}>
                 <DataTitle dataCoins={dataCoins} />
                 <Grid container item pt={5}>
-                    <input value={search} onChange={handleSearch} placeholder='جستجو' />
-                    <Filter handleFilterBtn={handleFilterBtn} />
+                    <Grid item sx={{ border: '1px solid #727272 ', borderRadius: '10px' }} >
+                        <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+                            <SearchIcon />
+                        </IconButton>
+                        <InputBase sx={{ ml: 1, flex: 1 }}
+                            placeholder="جستجو"
+                            onChange={handleSearch}
+                            value={search}
+                            name='search'
+                            inputProps={{ 'aria-label': 'search google maps' }}
+                        />
+                    </Grid>
+                    <Grid mx={2}>
+                        <Filter handleFilterBtn={handleFilterBtn} />
+                    </Grid>
                     <FilterPrice dataCoins={dataCoins} />
                 </Grid>
                 <Grid mt={5}>
