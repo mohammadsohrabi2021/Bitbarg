@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { Grid, Typography } from '@mui/material';
-function BoxItemModal({ dataCoins, search, setForm, setOpen }) {
+import { DataContext } from '../../../Context/CoinProvider'; 
+
+function BoxItemModal({  search, setForm, setOpen }) {
+    const {dataCoins, handleData } =useContext(DataContext)
+    useEffect(() => {
+        handleData()
+    }, [])
+    
     const handleInput = item => {
         setForm(item)
         handleClose()

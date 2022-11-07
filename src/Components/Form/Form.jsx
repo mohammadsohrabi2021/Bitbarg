@@ -1,7 +1,12 @@
 import { Grid, TextField } from '@mui/material';
 import React from 'react';
-function Form({ handleChange, form,handleShow }) {
-
+function Form({ setForm,setOpen,form }) {
+    const handleShow = () => {
+        setOpen(true)
+    }
+    const handleChange = e => {
+        setForm({ ...form, [e.target.name]: e.target.value })
+    }
     return (
         <Grid container spacing={{ xs: 1.5, md: 0.5 }} flexDirection={{ xs: 'column', md: 'row' }}>
             <Grid item>

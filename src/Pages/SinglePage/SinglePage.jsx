@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState,useContext  } from 'react';
 import { Container, Grid } from '@mui/material';
-import options from '../../Api/Api';
 import Filter from '../../Components/Filter/Filter';
 import FilterPrice from '../FilterPrice/FilterPrice';
 import HeaderSinglePage from '../HeaderSinglePage/HeaderSinglePage';
@@ -8,18 +7,10 @@ import DataTitle from '../DataTitle/DataTitle';
 import CardPageData from '../CardPageData/CardPageData';
 import { IconButton, InputBase } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { DataContext } from '../../Context/CoinProvider';
 function SinglePage() {
-    const [dataCoins, setDataCoins] = useState([])
     const [filter, setFilter] = useState('favoriteData')
-    const handleData = async () => {
-        const data = await options('/coins').then(res => res.data.data.coins)
-        setDataCoins(data)
-    }
-    useEffect(() => {
-        handleData()
-    }, [])
-
-
+    const {dataCoins, setDataCoins } =useContext(DataContext)
     const handleFilterBtn = title => {
         setFilter(title)
     }
@@ -47,7 +38,7 @@ function SinglePage() {
                     <Grid mx={2}>
                         <Filter handleFilterBtn={handleFilterBtn} />
                     </Grid>
-                    <FilterPrice dataCoins={dataCoins} />
+                    <FilterPrice  />
                 </Grid>
                 <Grid mt={5}>
                     <HeaderSinglePage />

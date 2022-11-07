@@ -1,26 +1,21 @@
 import { Grid } from '@mui/material';
 import { Container } from '@mui/system';
 import Image from '../../assets/img/banner.webp'
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import BoxDataModal from '../Box/BoxDataModal'
 import Footer from '../Footer/Footer';
 import ButtonsHome from '../ButtonsHome/ButtonsHome';
 import Form from '../Form/Form';
 
-function CardHome({ dataCoins }) {
-    console.log(dataCoins);
+function CardHome() {
+
     const [open, setOpen] = useState(false)
     const [form, setForm] = useState({
         name: 'Bitcoin',
         conunt: 1,
         price: 21273.862578
     })
-    const handleShow = () => {
-        setOpen(true)
-    }
-    const handleChange = e => {
-        setForm({ ...form, [e.target.name]: e.target.value })
-    }
+ 
     return (
         <Grid>
             <Container>
@@ -42,10 +37,10 @@ function CardHome({ dataCoins }) {
                     <Grid item>
                         <Grid item container spacing={{ xs: 1.5, md: 0.5 }} flexDirection={{ xs: 'column', md: 'row' }} mb={2}>
                             <Grid item>
-                                <Form form={form} handleChange={handleChange} handleShow={handleShow} />
+                                <Form form={form} setForm={setForm} setOpen={setOpen} />
                             </Grid>
                             <Grid item>
-                                <BoxDataModal open={open} setOpen={setOpen} dataCoins={dataCoins} setForm={setForm} />
+                                <BoxDataModal open={open} setOpen={setOpen}  setForm={setForm} />
                             </Grid>
                         </Grid>
                     </Grid>
