@@ -36,9 +36,10 @@ function Form({ setForm,setOpen,form }) {
                     onChange={handleChange}
                     value={form.name}
                     name='symbol'
-                    sx={{ cursor: "pointer" }}
+                    sx={{ cursor: "pointer", paddingRight: '0' }}
                     InputProps={{
                         readOnly: true,
+                        startAdornment: <Grid sx={{ width: '30%', display: 'flex', justifyContent: 'center' }}><img width={'30px'} height={'30px'} src={form.iconUrl} /></Grid>
                     }}
                 />
             </Grid>

@@ -48,11 +48,11 @@ function BoxDataModal({ open, setOpen,setForm}) {
                         <Grid item xs={12} marginTop={2}>
                             <Grid sx={{ maxHeight: '400px', height: '100%', overflowY: 'auto' }}>
                                 <List>
-                                    {
-                                        <>
+                                    { 
+                                        <Grid>
                                             <ModalItem  search={search} setForm={setForm} setOpen={setOpen} />
                                             <Divider variant="middle" />
-                                        </>
+                                        </Grid>
 
                                     }
                                 </List>
