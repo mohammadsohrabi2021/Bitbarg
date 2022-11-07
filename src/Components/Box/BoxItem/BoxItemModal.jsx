@@ -20,7 +20,7 @@ function BoxItemModal({ search, setForm, setOpen }) {
     }
     return (
         <Grid>
-            <ListItem component="div" sx={{ padding: 1 }}>
+            <ListItem component="div" disablePadding sx={{ padding: 1 }}>
                 <ListItemButton>
                     <ListItemText sx={{ textAlign: 'right' }} >
                         {
