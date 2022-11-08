@@ -5,6 +5,7 @@ function Filter({handleFilterBtn}) {
    
     const filterData = [
         { id: 1, title: true, name: 'نشان شده ها' },
+        { id: 2, title: true, name: 'همه ارز ها' },
     ]
     return (
         <Grid>

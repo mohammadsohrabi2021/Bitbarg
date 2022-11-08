@@ -17,16 +17,16 @@ function CardPageData({ dataCoins, search, status, setDataCoins }) {
                         justifyContent: 'space-around',
 
                     }}>
-                        <Grid paddingLeft={2}>
+                        <Grid sx={6} paddingLeft={2}>
                             <img width={'50px'} src={item.iconUrl} />
                         </Grid>
-                        <Grid>
+                        <Grid sx={3}>
                             <Typography>{item.name}</Typography>
                             <Typography>{item.symbol}</Typography>
                         </Grid>
-                        <Typography>{item.price}</Typography>
-                        <Typography>{item.marketCap}</Typography>
-                        <Typography>{`${item.change} %`}</Typography>
+                        <Grid sx={1}><Typography>{item.price}</Typography></Grid>
+                       <Grid sx={1}> <Typography>{item.marketCap}</Typography></Grid>
+                        <Grid sx={1}><Typography>{`${item.change} %`}</Typography></Grid>
                         <Grid onClick={() => handelCheck(item.uuid)}>
                             <Typography>{item.lVolume ? <StarIcon /> : <StarBorderIcon />}</Typography>
                         </Grid>
