@@ -14,21 +14,22 @@ function NavbarLogic({ setSearch, setUnit, setStatus, status, setFiltered, filte
     setFiltered(filtered.sort((a, b) => a.price - b.price))
   }, [filtered])
   return (
-    <Grid mt={3} display={'flex'}  alignItems={"center"} justifyContent={'space-between'} spacing={1} marginBottom={2}  >
-
-      <Grid item xs={12} md={4} mx={2} >
+    <Grid xs={12} container item mt={3} display={'flex'} alignItems={"center"} justifyContent={'space-evenly'}  marginBottom={2} sx={{ flexDirection: { xs: "column", md: "row" } ,width:{ lg: "100%", md: "100%" , xs:"100%" }}}>
+      <Grid container item xs={12}  md={4}>
         <Search setSearch={setSearch} />
       </Grid>
-      <Grid item  xs={12} md={4}>
-        <FormControlLabel
-          control={<Switch onChange={() => setStatus(!status)} />}
-          label="نشان شده ها"
-          labelPlacement="Left"
-        />
+      <Grid item display={'flex'} alignItems={'center'} justifyContent={'center'} sm={6}  md={8}>
+        <Grid item xs={12} md={4}>
+          <FormControlLabel
+            control={<Switch onChange={() => setStatus(!status)} />}
+            label="نشان شده ها"
+            labelPlacement="Left"
+          />
+        </Grid>
+        <Grid container item  xs={12} sm={6} md={8}>
+          <FilterPrice setUnit={setUnit} handleAscendingPrice={handleAscendingPrice} />
+        </Grid>
       </Grid>
-     <Grid item px={10} xs={12} md={4}>
-       <FilterPrice setUnit={setUnit} />
-     </Grid>
     </Grid>
   );
 }

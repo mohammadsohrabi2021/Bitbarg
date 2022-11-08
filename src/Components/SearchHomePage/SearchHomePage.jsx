@@ -6,7 +6,7 @@ function SearchHomePage({setSearch,search}) {
         setSearch(e.target.value)
     }
     return (
-        <Grid item sx={{ border: '1px solid #727272 ', borderRadius: '10px' }} xs={12}>
+        <Grid sx={{ border: '1px solid #727272 ', borderRadius: '10px' }} xs={12}>
             <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
                 <SearchIcon />
             </IconButton>

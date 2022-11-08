@@ -9,7 +9,8 @@ import  IconButton  from "@mui/material/IconButton";
 function NavbarMobile({item,handleStar,unit}) {
     console.log(item);
     return (
-        <TableRow hover role="checkbox" tabIndex={-1} >
+        <Grid >
+            <TableRow hover role="checkbox" tabIndex={-1}  >
             <TableCell sx={{ textAlign: "center" }}>
                 <IconButton onClick={() => handleStar(item.uuid)}>
                     {item.star ? <StarIcon /> : <StarBorderIcon />}
@@ -54,7 +55,7 @@ function NavbarMobile({item,handleStar,unit}) {
                         color={"rgba(0, 0, 0, 0.6)"}
                         px={1}
                     >
-                        {"فروش"}
+                        {'تومان'}
                     </Typography>
 
 
@@ -111,6 +112,7 @@ function NavbarMobile({item,handleStar,unit}) {
                 </Grid>
             </TableCell>
         </TableRow>
+        </Grid>
     );
 }
 

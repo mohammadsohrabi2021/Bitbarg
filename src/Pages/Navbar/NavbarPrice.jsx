@@ -42,41 +42,45 @@ function NavbarPrice() {
     handleStatus();
   }, [status, dataCoins, filtered]);
   return (
-    <Paper>
-      <Grid mx={2}>
-        <DataTitle dataCoins={dataCoins} />
-      </Grid>
-      <NavbarLogic setSearch={setSearch} setUnit={setUnit} setStatus={setStatus} status={status} setFiltered={setFiltered} filtered={filtered} />
-      <Table stickyHeader aria-label="sticky table">
-        {isDesktop ?
-          <TableHead >
-            <TableRow >
-              {columns.map((col, index) => (
-                <TableCell
-                  sx={{
-                    border: "none",
-                    textAlign: "center",
-                    backgroundColor: "secondary.main",
-                  }}
-                  key={index}
-                >
-                  {col.label}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          : null}
-        <TableBody>
-          {filtered.filter(todo => todo.name.toUpperCase().includes(search.toUpperCase())).map((item) => (
-            (isDesktop ?
-              (<NavbarDesktop item={item} key={item.uuid} handleStar={handleStar} unit={unit} />) :
-              (<NavbarMobile item={item} key={item.uuid} handleStar={handleStar} unit={unit} />)
+    <Grid container>
+      <Paper sx={{ flexDirection: { xs: "column", md: "row" }, width: '100%' }}>
+        <Grid item mx={2}>
+          <DataTitle dataCoins={dataCoins} />
+        </Grid>
+        <Grid item>
+          <NavbarLogic setSearch={setSearch} setUnit={setUnit} setStatus={setStatus} status={status} setFiltered={setFiltered} filtered={filtered} />
+        </Grid>
+        <Table stickyHeader aria-label="sticky table">
+          {isDesktop ?
+            <TableHead >
+              <TableRow >
+                {columns.map((col, index) => (
+                  <TableCell
+                    sx={{
+                      border: "none",
+                      textAlign: "center",
+                      backgroundColor: "secondary.main",
+                    }}
+                    key={index}
+                  >
+                    {col.label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            : null}
+          <TableBody>
+            {filtered.filter(todo => todo.name.toUpperCase().includes(search.toUpperCase())).map((item) => (
+              (isDesktop ?
+                (<NavbarDesktop item={item} key={item.uuid} handleStar={handleStar} unit={unit} />) :
+                (<NavbarMobile item={item} key={item.uuid} handleStar={handleStar} unit={unit} />)
 
-            )
-          ))}
-        </TableBody>
-      </Table>
-    </Paper>
+              )
+            ))}
+          </TableBody>
+        </Table>
+      </Paper>
+    </Grid>
   );
 }
 
