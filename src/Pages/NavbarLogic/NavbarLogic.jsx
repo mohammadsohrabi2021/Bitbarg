@@ -6,8 +6,9 @@ import Search from '../../Components/SearchHomePage/SearchHomePage';
 import { useCallback } from "react"
 import FilterPrice from '../FilterPrice/FilterPrice';
 import { useEffect } from 'react';
+import ChangePrice from '../ChangePrice/ChangePrice';
 function NavbarLogic({ setSearch, setUnit, setStatus, status, setFilterPrice, filterPrice }) {
-  const [statusPrice,setStatusPrice]=useState('')
+  const [statusPrice, setStatusPrice] = useState('')
   const handleDescendingPrice = useCallback(() => {
     const coinData = [...filterPrice]
     if (statusPrice === 'ascending') {
@@ -22,25 +23,29 @@ function NavbarLogic({ setSearch, setUnit, setStatus, status, setFilterPrice, fi
 
   useEffect(() => {
     handleDescendingPrice();
-  }, [ statusPrice]);
+  }, [statusPrice]);
 
   return (
-    <Grid xs={12} container item mt={3} display={'flex'} alignItems={"center"} justifyContent={'space-evenly'}  marginBottom={2} sx={{ flexDirection: { xs: "column", md: "row" } ,width:{ lg: "100%", md: "100%" , xs:"100%" }}}>
-      <Grid container item xs={12}  md={4}>
-        <Search setSearch={setSearch} />
-      </Grid>
-      <Grid item display={'flex'} alignItems={'center'} justifyContent={'center'} sm={6}  md={8}>
-        <Grid item xs={12} md={4}>
+    <Grid xs={12} container item mt={3} display={'flex'} alignItems={"center"} justifyContent={'space-evenly'} marginBottom={2} sx={{ flexDirection: { xs: "column", md: "row" }, width: { lg: "100%", md: "100%", xs: "100%" } }}>
+      <Grid container item display={'flex'} alignItems={"center"} justifyContent={'space-evenly'} xs={12} sm={12} md={8}>
+        <Grid container item xs={12} sm={5}  >
+          <Search setSearch={setSearch} />
+        </Grid>
+        <Grid mt={1} item xs={6} sm={3} md={4}>
           <FormControlLabel
             control={<Switch onChange={() => setStatus(!status)} />}
             label="نشان شده ها"
             labelPlacement="Left"
           />
         </Grid>
-        <Grid container item  xs={12} sm={6} md={8}>
-          <FilterPrice setUnit={setUnit}  statusPrice={statusPrice} setStatusPrice={setStatusPrice}/>
+        <Grid item mt={1} xs={6} sm={3} md={3}>
+          <ChangePrice setUnit={setUnit} />
         </Grid>
       </Grid>
+      <Grid item container mt={2} xs={12} sm={12} md={4}>
+        <FilterPrice statusPrice={statusPrice} setStatusPrice={setStatusPrice} />
+      </Grid>
+
     </Grid>
   );
 }

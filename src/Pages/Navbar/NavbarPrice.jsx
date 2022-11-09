@@ -20,7 +20,6 @@ function NavbarPrice() {
   const [unit, setUnit] = useState(true);
   const [status, setStatus] = useState(false);
   const [filterPrice, setFilterPrice] = useState([]);
-  console.log(dataCoins);
 
   const handleStar = (id) => {
     setDataCoins(
@@ -47,7 +46,7 @@ function NavbarPrice() {
         <Grid item mx={2}>
           <DataTitle dataCoins={dataCoins} />
         </Grid>
-        <Grid item>
+        <Grid item >
           <NavbarLogic setSearch={setSearch} setUnit={setUnit} setStatus={setStatus} status={status} setFilterPrice={setFilterPrice} filterPrice={filterPrice} />
         </Grid>
         <Table stickyHeader aria-label="sticky table">

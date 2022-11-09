@@ -45,7 +45,7 @@ function NavbarMobile({ item, handleStar, unit }) {
                             color={"rgba(0, 0, 0, 0.6)"}
                             px={1}
                         >
-                            {'ارزش بازار'}
+                            {' فروش'}
                         </Typography>
                         <Typography variant="title1">
                             {item.marketCap}

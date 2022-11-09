@@ -24,10 +24,12 @@ function NavbarDesktop({ item, handleStar, unit }) {
             color={"rgba(0, 0, 0, 0.6)"}
             px={1}
           >
-            {"تومان"}
+             {unit ? "تومان" : "Tether"}
           </Typography>
           <Typography variant="title1">
-            {item.marketCap}
+          {unit
+              ? Math.ceil(item.marketCap / 38000)
+              : Math.ceil(item.marketCap)}
           </Typography>
         </Grid>
       </TableCell>
