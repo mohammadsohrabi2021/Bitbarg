@@ -12,8 +12,8 @@ function CardHome() {
     const [open, setOpen] = useState(false)
     const [form, setForm] = useState({
         name: 'Bitcoin',
-        conunt: 1,
-        price: 21273.862578
+        tier: 1,
+        price: 21273.862578,
     })
  
     return (

@@ -19,7 +19,7 @@ function NavbarPrice() {
   const { dataCoins, setDataCoins } = useContext(DataContext)
   const [unit, setUnit] = useState(true);
   const [status, setStatus] = useState(false);
-  const [filtered, setFiltered] = useState([]);
+  const [filterPrice, setFilterPrice] = useState([]);
   console.log(dataCoins);
 
   const handleStar = (id) => {
@@ -32,15 +32,15 @@ function NavbarPrice() {
 
   const handleStatus = () => {
     if (status) {
-      setFiltered(dataCoins.filter(item => item.star === true));
+      setFilterPrice(dataCoins.filter(item => item.star === true));
     } else {
-      setFiltered(dataCoins);
+      setFilterPrice(dataCoins);
     }
   };
 
   useEffect(() => {
     handleStatus();
-  }, [status, dataCoins, filtered]);
+  }, [status, dataCoins]);
   return (
     <Grid container>
       <Paper sx={{ flexDirection: { xs: "column", md: "row" }, width: '100%' }}>
@@ -48,7 +48,7 @@ function NavbarPrice() {
           <DataTitle dataCoins={dataCoins} />
         </Grid>
         <Grid item>
-          <NavbarLogic setSearch={setSearch} setUnit={setUnit} setStatus={setStatus} status={status} setFiltered={setFiltered} filtered={filtered} />
+          <NavbarLogic setSearch={setSearch} setUnit={setUnit} setStatus={setStatus} status={status} setFilterPrice={setFilterPrice} filterPrice={filterPrice} />
         </Grid>
         <Table stickyHeader aria-label="sticky table">
           {isDesktop ?
@@ -70,7 +70,7 @@ function NavbarPrice() {
             </TableHead>
             : null}
           <TableBody>
-            {filtered.filter(todo => todo.name.toUpperCase().includes(search.toUpperCase())).map((item) => (
+            {filterPrice.filter(todo => todo.name.toUpperCase().includes(search.toUpperCase())).map((item) => (
               (isDesktop ?
                 (<NavbarDesktop item={item} key={item.uuid} handleStar={handleStar} unit={unit} />) :
                 (<NavbarMobile item={item} key={item.uuid} handleStar={handleStar} unit={unit} />)

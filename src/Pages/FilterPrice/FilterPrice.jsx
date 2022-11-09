@@ -1,34 +1,34 @@
 import React from 'react';
-import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
-import NativeSelect from '@mui/material/NativeSelect';
-import { Button, Grid } from '@mui/material';
-function FilterPrice({ setUnit,handleAscendingPrice }) {
-    const [price, setPrice] = React.useState('');
-    const handleChange = (event) => {
-        setPrice(event.target.value);
+import { Button, Grid, InputLabel, MenuItem, Select, Typography } from '@mui/material';
+function FilterPrice({ setUnit, statusPrice, setStatusPrice }) {
+    const handleChangeStatus = (e) => {
+        setStatusPrice(e.target.value);
     };
     return (
-        <Grid container  sm={12} md={12} item sx={{ flexDirection: { xs: "column", md: "row" } ,width:{ lg: "100%", md: "100%" , xs:"100%" }}}>
-            <Grid item sm={10} md={6}  display={'flex'} alignItems={"center"} justifyContent={'space-between'}>
-                <Box sx={{ display: { xs: "none", sm: "block" } }}>
-                    <FormControl px={2}>
-                        <NativeSelect 
-                            defaultValue={10}
-                            inputProps={{
-                                name: 'price',
-                                id: 'uncontrolled-native',
-                            }}
+        <Grid container sm={12} md={12} item sx={{ flexDirection: { xs: "column", md: "row" }, width: { lg: "100%", md: "100%", xs: "100%" } }}>
+            <Grid px={2} item sm={10} md={6} display={'flex'} alignItems={"center"} justifyContent={'space-between'}>
+                    <FormControl fullWidth >
+                        <InputLabel id="demo-simple-select-label">{'قیمت بر اساس'}</InputLabel>
+                        <Select
+                            p={0}
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={statusPrice}
+                            label="قیمت بر اساس"
+                            onChange={handleChangeStatus}
                         >
-                            <option onClick={handleAscendingPrice} value={10}>{"ترتیب براساس"}</option>
-                            <option value={20}>{"کم ترین قیمت"}</option>
-                            <option value={30}>{"بیشترین قیمت"}</option>
-                        </NativeSelect>
+                            <MenuItem value={"ascending"}>
+                                <Typography>{"کمترین قیمت"}</Typography>
+                            </MenuItem>
+                            <MenuItem value={"descending"}>
+                                <Typography>{"بیشترین قیمت"}</Typography>
+                            </MenuItem>
+                        </Select>
                     </FormControl>
-                </Box>
             </Grid>
 
-            <Grid item mt={2} sx={{ mx:{xs:'10px',sm:'50px',md:'0px'}}} display={"flex"}  sm={2} md={6} >
+            <Grid item mt={2} sx={{ mx: { xs: '10px', sm: '50px', md: '0px' } }} display={"flex"} sm={2} md={6} >
                 <Button variant='contained' mx={1} onClick={() => setUnit(true)} >
                     {"تومان"}
                 </Button>

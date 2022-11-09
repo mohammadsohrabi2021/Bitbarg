@@ -24,12 +24,13 @@ function Form({ setForm,setOpen,form }) {
                     id="outlined"
                     label="واحد"
                     onChange={handleChange}
-                    value={form.tier || form.conunt}
+                    value={form.tier || form.tier}
                     name='tier'
                 />
             </Grid>
             <Grid item>
                 <TextField
+                
                     onClick={handleShow}
                     id="outlined-read-only-input"
                     label="انتخاب ارز"

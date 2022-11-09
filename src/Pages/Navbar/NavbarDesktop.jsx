@@ -35,7 +35,7 @@ function NavbarDesktop({ item, handleStar, unit }) {
         <Grid display={"flex"}>
           <Typography variant="title1">
             {unit
-              ? Math.ceil(item.price * 34000)
+              ? Math.ceil(item.price * 38000)
               : Math.ceil(item.price)}
           </Typography>
           <Typography
