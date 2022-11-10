@@ -1,16 +1,25 @@
-import { Grid, Typography } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
 import React from 'react';
-
+import { Link } from 'react-router-dom';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 function DataTitle({ dataCoins }) {
     return (
-        <Grid>
-            <Grid sx={{ display: 'flex', gap: 2 }} mt={15} pt={5}>
+        <Grid mt={10}>
+            <Grid sx={{ direction: 'ltr' }} display={{md:'none'}}>
+                <Link to={'/'}>
+                    <Button variant='outlined'>
+                        <KeyboardBackspaceIcon />  Home
+                    </Button>
+                </Link>
+            </Grid>
+            <Grid sx={{ display: 'flex', gap: 2 }} pt={5}>
                 <Typography variant='h2'>
                     {'قیمت لحظه ای '}
                 </Typography>
                 <Typography>
                     {`${dataCoins.length} ارز دیجیتال`}
                 </Typography>
+
             </Grid>
         </Grid>
     );

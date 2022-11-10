@@ -1,7 +1,7 @@
 import React from 'react';
 import FormControl from '@mui/material/FormControl';
 import { Button, Grid, InputLabel, MenuItem, Select, Typography } from '@mui/material';
-function FilterPrice({ setUnit, statusPrice, setStatusPrice }) {
+function FilterPrice({statusPrice, setStatusPrice }) {
     const handleChangeStatus = (e) => {
         setStatusPrice(e.target.value);
     };
