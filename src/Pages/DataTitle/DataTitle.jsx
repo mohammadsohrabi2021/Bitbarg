@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 function DataTitle({ dataCoins }) {
     return (
-        <Grid mt={10}>
+        <Grid mt={10} xs={12}>
             <Grid sx={{ direction: 'ltr' }} display={{md:'none'}}>
                 <Link to={'/'}>
                     <Button variant='outlined'>
