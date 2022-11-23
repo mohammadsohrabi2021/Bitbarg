@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import IconButton from "@mui/material/IconButton";
+import LineChart from './Chart/LineChart'
 function NavbarDesktop({ item, handleStar, unit }) {
   return (
     <TableRow hover role="checkbox" tabIndex={-1} >
@@ -17,6 +18,9 @@ function NavbarDesktop({ item, handleStar, unit }) {
       <TableCell
         sx={{ textAlign: "center", direction: "ltr" }}
       >{`${item.change}%`}</TableCell>
+       <TableCell sx={{ textAlign: "center" }}>
+          <LineChart item={item}/>
+        </TableCell>
       <TableCell sx={{ textAlign: "center" }}>
         <Grid display={"flex"}>
           <Typography
