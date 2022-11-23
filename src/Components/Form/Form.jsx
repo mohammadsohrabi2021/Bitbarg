@@ -14,7 +14,7 @@ function Form({ setForm,setOpen,form }) {
                     onChange={handleChange}
                     id="outlined"
                     label="تومان"
-                    value={form.price * form.tier}
+                    value={Number(form.price * form.tier).toFixed(2)}
                     name='price'
 
                 />
@@ -40,7 +40,7 @@ function Form({ setForm,setOpen,form }) {
                     sx={{ cursor: "pointer", paddingRight: '0' }}
                     InputProps={{
                         readOnly: true,
-                        startAdornment: <Grid sx={{ width: '30%', display: 'flex', justifyContent: 'center' }}><img width={'30px'} height={'30px'} src={form.iconUrl} /></Grid>
+                        startAdornment: <Grid sx={{ width: '30%', display: 'flex', justifyContent: 'center' }}><img width={'30px'} height={'30px'} src={form.iconUrl||form.icon} /></Grid>
                     }}
                 />
             </Grid>

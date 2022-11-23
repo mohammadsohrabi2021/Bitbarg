@@ -1,5 +1,5 @@
 import { Container, Paper } from '@mui/material';
-import NavbarPrice from '../Navbar/NavbarPrice';
+import NavbarPrice from '../../Components/Navbar/NavbarPrice';
 import {styles} from'./BackGround'
 import { useEffect } from 'react';
 function SinglePage() {

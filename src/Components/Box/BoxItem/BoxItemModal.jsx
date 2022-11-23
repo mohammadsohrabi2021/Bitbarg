@@ -21,7 +21,7 @@ function BoxItemModal({coin }) {
                         <Grid item>
                             <Typography variant='title1' marginBottom={1}>{'قیمت خرید'}</Typography>
                             <Grid display={'flex'}>
-                                <Typography variant='title1'>{coin.price}</Typography>
+                                <Typography variant='title1'>{Number(coin.price).toFixed(3)}</Typography>
                                 <Typography variant='title1' color={'rgba(0, 0, 0, 0.6)'} px={1}>{'تومان'}</Typography>
 
                             </Grid>

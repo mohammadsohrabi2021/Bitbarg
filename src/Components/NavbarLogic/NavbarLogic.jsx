@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Grid from '@mui/material/Grid';
-import Search from '../../Components/SearchHomePage/SearchHomePage';
+import Search from '../SearchHomePage/SearchHomePage';
 import { useCallback } from "react"
 import FilterPrice from '../FilterPrice/FilterPrice';
 import { useEffect } from 'react';

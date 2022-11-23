@@ -11,9 +11,10 @@ function CardHome() {
 
     const [open, setOpen] = useState(false)
     const [form, setForm] = useState({
-        name: 'Bitcoin',
-        tier: 1,
-        price: 21273.862578,
+        // name: 'Bitcoin',
+        // tier: 1,
+        // price: 21273.862578,
+        name:'Bitcoin',tier: 1,price:"20443.399793940775",icon:"https://cdn.coinranking.com/bOabBYkcX/bitcoin_btc.svg",
     })
  
     return (
