@@ -8,10 +8,7 @@ import { DataContext } from '../../Context/CoinProvider';
 function BoxDataModal({ open, setOpen, setForm }) {
     const [search, setSearch] = useState('')
 
-    const { dataCoins, handleData } = useContext(DataContext)
-    useEffect(() => {
-        handleData()
-    }, [])
+    const { dataCoins } = useContext(DataContext)
 
     const handleInput = item => {
         setForm(item)
