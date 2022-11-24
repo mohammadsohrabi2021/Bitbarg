@@ -7,7 +7,7 @@ function FilterPrice({statusPrice, setStatusPrice }) {
     };
     return (
         <Grid container sm={12} md={12} item sx={{ flexDirection: { xs: "column", md: "row" }, width: { lg: "100%", md: "100%", xs: "100%" } }}>
-            <Grid px={2} item sm={10} md={6} display={'flex'} alignItems={"center"} justifyContent={'space-between'}>
+            <Grid item sm={10} md={6} display={'flex'} alignItems={"center"} justifyContent={'space-between'}>
                     <FormControl fullWidth >
                         <InputLabel id="demo-simple-select-label">{'قیمت بر اساس'}</InputLabel>
                         <Select

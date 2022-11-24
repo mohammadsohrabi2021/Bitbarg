@@ -3,7 +3,7 @@ import React from 'react';
 
 function ChangePrice({ setUnit}) {
     return (
-        <Grid item sx={{ mx: { xs: '10px', sm: '50px', md: '0px' } }} display={"flex"} sm={2} md={6} >
+        <Grid item sx={{ mx: { xs: '10px', sm: '50px', md: '0px' } }} display={"flex"}  >
             <Button variant='contained' mx={1} onClick={() => setUnit(true)} >
                 {"تومان"}
             </Button>
